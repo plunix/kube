@@ -8,5 +8,25 @@ run nslookup svc-rethinkdb-driver.development. confirm that it fails
 edit /etc/resolv.conf and remove the nameserver 10.0.2.3
 
 
-kubectl exec busybox cat /etc/resolv.conf
+busybox container resolv.conf
+
+⇒  kubectl exec busybox cat /etc/resolv.conf
+nameserver 10.0.0.2
+search default.svc.cluster.local svc.cluster.local cluster.local
+options ndots:5
+nslookup kubernetes
+
+⇒  kubectl exec busybox nslookup kubernetes
+Server:    10.0.0.2
+Address 1: 10.0.0.2 kube-dns.kube-system.svc.cluster.local
+
+Name:      kubernetes
+Address 1: 218.205.57.154
+nslookup kubernetes.default.svc.cluster.local
+
+Server:    10.0.0.2
+Address 1: 10.0.0.2 kube-dns.kube-system.svc.cluster.local
+
+Name:      kubernetes.default.svc.cluster.local
+Address 1: 10.0.0.1 kubernetes.default.svc.cluster.local
 
