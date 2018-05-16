@@ -1,6 +1,6 @@
 kubectl --namespace=kube-system get pods
 
-kubectl --namespace=kube-system exec -ti kube-dns-v19-7u9iq -c kubedns -- nslookup kubernetes.default.svc.cluster.local 127.0.0.1
+kubectl --namespace=kube-system exec -ti kube-dns-7dfdc4897f-97wrf  -c kubedns -- nslookup kubernetes.default.svc.cluster.local 127.0.0.1
 
 #DNS
 kubectl exec -ti curlpod --namespace=development /bin/bash
