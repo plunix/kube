@@ -1,3 +1,8 @@
 kubectl --namespace=kube-system get pods
 
 kubectl --namespace=kube-system exec -ti kube-dns-v19-7u9iq -c kubedns -- nslookup kubernetes.default.svc.cluster.local 127.0.0.1
+
+#DNS
+kubectl exec -ti curlpod --namespace=development /bin/bash
+run nslookup svc-rethinkdb-driver.development. confirm that it fails
+edit /etc/resolv.conf and remove the nameserver 10.0.2.3
