@@ -1,3 +1,7 @@
+#SERVICE VAR
+kubectl exec nginx -- printenv | grep SERVICE
+
+
 kubectl --namespace=kube-system get pods
 
 kubectl --namespace=kube-system exec -ti kube-dns-7dfdc4897f-97wrf  -c kubedns -- nslookup kubernetes.default.svc.cluster.local 127.0.0.1
